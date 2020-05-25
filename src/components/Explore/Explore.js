@@ -36,9 +36,7 @@ class TableComponent extends React.Component {
         data: data.data.slice(0, 200),
         pagination: {
           ...params.pagination,
-          total: 200,
-          // 200 is mock data, you should read it from server
-          // total: data.totalCount,
+          total: 200
         },
       })
     })
@@ -54,7 +52,7 @@ class TableComponent extends React.Component {
 
   render() {
     const { data, pagination, loading } = this.state
-    const getDynamicOtions = (type) => {
+    const getDynamicOptions = (type) => {
       const uniqueArray = []
       const filteredData = []
 
@@ -97,7 +95,7 @@ class TableComponent extends React.Component {
       {
         title: 'Fund Category',
         dataIndex: 'fund_category',
-        filters: getDynamicOtions('fund_category'),
+        filters: getDynamicOptions('fund_category'),
         sorter: (a, b) => {
           if (a.fund_category < b.fund_category) {
             return -1
@@ -115,18 +113,7 @@ class TableComponent extends React.Component {
       {
         title: 'Fund Type',
         dataIndex: 'fund_type',
-        filters: getDynamicOtions('fund_type'),
-        sorter: (a, b) => {
-          if (a.fund_type < b.fund_type) {
-            console.log(a, b)
-            return -1
-          }
-          if (a.fund_type > b.fund_type) {
-            return 1
-          }
-          return 0
-        },
-        sortDirections: ['ascend', 'descend'],
+        filters: getDynamicOptions('fund_type'),
         onFilter: (value, record) => {
           return record.fund_type === value
         },
@@ -134,18 +121,7 @@ class TableComponent extends React.Component {
       {
         title: 'Plan',
         dataIndex: 'plan',
-        filters: getDynamicOtions('plan'),
-        sorter: (a, b) => {
-          if (!a.plan || !b.plan) return
-          console.log(a.plan, b.plan)
-          if (a.plan < b.plan) {
-            return -1
-          }
-          if (a.plan > b.plan) {
-            return 1
-          }
-        },
-        sortDirections: ['ascend', 'descend'],
+        filters: getDynamicOptions('plan'),
         onFilter: (value, record) => {
           return record.plan === value
         },
