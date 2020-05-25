@@ -1,0 +1,14 @@
+.pageHeader {
+  border: 1px solid #ccc;
+  background:  rgb(145, 179, 229);
+}
+
+.table {
+  margin: 24px;
+  box-sizing: border-box;
+}
+
+.nameLink {
+  color: rgb(101, 148, 218);
+  cursor: pointer;
+}
