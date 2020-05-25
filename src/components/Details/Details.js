@@ -18,22 +18,11 @@ const Details = (props) => {
   return (
     <React.Fragment>
       <PageHeader
+        onBack={() => props.history.push('/')}
         className={Styles.pageTitle}
         title={`Details of Fund with code ${code}`}
       />
-      <div className={Styles.detailsRoot}>
-        {/* <Row>
-            <Col span={8} className={Styles.propertyName}>Fund Name:</Col>
-            <Col span={16} className={Styles.propertyValue}>{details.name} </Col>
-          </Row>
-          <Row>
-            <Col span={8} className={Styles.propertyName}>Fund Type</Col>
-            <Col span={16} className={Styles.propertyValue}>{details.fund_type}</Col>
-          </Row>
-          <Row>
-            <Col span={8} className={Styles.propertyName}>Fund Category</Col>
-            <Col span={16} className={Styles.propertyValue}>{details.fund_category}</Col>
-          </Row> */}
+      <div className={Styles.detailsRoot}>        
         <Row gutter={16}>
           <Col span={8}>
             <Card title="Fund Name" bordered={true} className={Styles.propertyName}>
